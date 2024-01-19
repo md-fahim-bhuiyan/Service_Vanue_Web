@@ -16,10 +16,12 @@
             justify-content: center;
             height: 100vh;
         }
+
         .button-container {
             display: flex;
             margin-bottom: 20px;
         }
+
         .signup-button {
             background-color: #007bff;
             color: #fff;
@@ -30,11 +32,13 @@
             width: 150px;
             margin-right: 10px;
         }
+
         .signup-button.personal {
             background-color: #28a745;
         }
+
         .signup-container {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             max-width: 800px;
@@ -45,25 +49,30 @@
             overflow: hidden;
             box-sizing: border-box;
         }
+
         .columns-container {
             display: flex;
             width: 100%;
         }
+
         .column {
             flex: 1;
             padding: 30px;
             box-sizing: border-box;
         }
+
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 20px;
         }
+
         label {
             display: block;
             margin-top: 15px;
             color: #555;
         }
+
         input,
         select {
             width: 100%;
@@ -73,6 +82,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
+
         button {
             background-color: #007bff;
             color: #fff;
@@ -90,81 +100,84 @@
         <button class="signup-button personal" onclick="switchSignup('personal')">Personal Signup</button>
     </div>
 
-    <div class="signup-container" id="professionalSignup">
-        <h2>Professional Signup</h2>
+    <form id="signupForm" method="POST" action="signup.php">
+        <input type="hidden" name="signupType" id="signupType" value="professional">
 
-        <div class="columns-container">
-            <div class="column">
-                <!-- Professional Signup Form Fields -->
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+        <div class="signup-container" id="professionalSignup">
+            <h2>Professional Signup</h2>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            <div class="columns-container">
+                <div class="column">
+                    <!-- Professional Signup Form Fields -->
+                    <label for="profName">Name:</label>
+                    <input type="text" id="profName" name="name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                    <label for="profPhone">Phone Number:</label>
+                    <input type="tel" id="profPhone" name="phone" pattern="[0-9]{11}" required>
 
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
+                    <label for="profEmail">Email:</label>
+                    <input type="email" id="profEmail" name="email" required>
 
+                    <label for="profAddress">Address:</label>
+                    <input type="text" id="profAddress" name="address" required>
+                </div>
+
+                <div class="column">
+                    <!-- Professional Signup Form Fields -->
+                    <label for="workType">Work Type:</label>
+                    <select id="workType" name="workType" required>
+                        <option value="" selected disabled>Select Work Type</option>
+                        <option value="1">Plumbing</option>
+                        <option value="2">Gasline Repair</option>
+                        <option value="3">Electrical</option>
+                    </select>
+
+                    <label for="profPassword">Password:</label>
+                    <input type="password" id="profPassword" name="password" required>
+
+                    <label for="profConfirmPassword">Confirm Password:</label>
+                    <input type="password" id="profConfirmPassword" name="confirmPassword" required>
+                </div>
             </div>
-
-            <div class="column">
-                <!-- Professional Signup Form Fields -->
-                <label for="workType">Work Type:</label>
-                <select id="workType" name="workType" required>
-                    <option value="" selected disabled>Select Work Type</option>
-                    <option value="1">Plumding</option>
-                    <option value="2">Gasline Repair</option>
-                    <option value="3">Electical</option>
-                </select>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
-            </div>
+            <button type="submit">Sign Up</button>
         </div>
-        <button type="button" onclick="signup('professional')">Sign Up</button>
-    </div>
+    </form>
 
-    <div class="signup-container" id="personalSignup" style="display: none;">
+    <div class="signup-container" id="personalSignup">
         <h2>Personal Signup</h2>
 
         <div class="columns-container">
             <div class="column">
                 <!-- Personal Signup Form Fields -->
-                <label for="phone">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <label for="personalName">Name:</label>
+                <input type="text" id="personalName" name="name" required>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                <label for="personalPhone">Phone Number:</label>
+                <input type="tel" id="personalPhone" name="phone" pattern="[0-9]{10}" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="personalEmail">Email:</label>
+                <input type="email" id="personalEmail" name="email" required>
 
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address" required>
+                <label for="personalAddress">Address:</label>
+                <input type="text" id="personalAddress" name="address" required>
             </div>
 
             <div class="column">
                 <!-- Personal Signup Form Fields -->
+                <label for="personalPassword">Password:</label>
+                <input type="password" id="personalPassword" name="password" required>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <label for="personalConfirmPassword">Confirm Password:</label>
+                <input type="password" id="personalConfirmPassword" name="confirmPassword" required>
             </div>
         </div>
-
-        <button type="button" onclick="signup('personal')">Sign Up</button>
+        <button type="submit">Sign Up</button>
     </div>
 
     <script>
         function switchSignup(option) {
+            document.getElementById('signupType').value = option;
+
             if (option === 'professional') {
                 document.getElementById('professionalSignup').style.display = 'flex';
                 document.getElementById('personalSignup').style.display = 'none';
@@ -172,11 +185,6 @@
                 document.getElementById('professionalSignup').style.display = 'none';
                 document.getElementById('personalSignup').style.display = 'flex';
             }
-        }
-
-        function signup(type) {
-            // Add signup functionality here based on the selected type (professional or personal)
-            alert(type + ' signup button clicked');
         }
     </script>
 </body>

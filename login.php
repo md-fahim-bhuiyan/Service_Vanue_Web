@@ -43,7 +43,7 @@
     </style>
 </head>
 <body>
-    <form id="loginForm">
+    <form id="loginForm" method="POST" action="loginform.php">
         <h2>Login</h2>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
@@ -51,14 +51,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="button" onclick="login()">Login</button>
-        
+        <button type="submit">Login</button>
     </form>
-    <script>
-        function login() {
-            // Add login functionality here
-            alert('Login button clicked');
-        }
-    </script>
 </body>
 </html>
