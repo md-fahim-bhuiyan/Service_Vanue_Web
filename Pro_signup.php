@@ -143,36 +143,40 @@
         </div>
     </form>
 
-    <div class="signup-container" id="personalSignup">
-        <h2>Personal Signup</h2>
+    <form id="personalSignupForm" method="POST" action="signup.php">
+        <input type="hidden" name="signupType" id="signupType" value="personal">
 
-        <div class="columns-container">
-            <div class="column">
-                <!-- Personal Signup Form Fields -->
-                <label for="personalName">Name:</label>
-                <input type="text" id="personalName" name="name" required>
+        <div class="signup-container" id="personalSignup">
+            <h2>Personal Signup</h2>
 
-                <label for="personalPhone">Phone Number:</label>
-                <input type="tel" id="personalPhone" name="phone" pattern="[0-9]{10}" required>
+            <div class="columns-container">
+                <div class="column">
+                    <!-- Personal Signup Form Fields -->
+                    <label for="personalName">Name:</label>
+                    <input type="text" id="personalName" name="name" required>
 
-                <label for="personalEmail">Email:</label>
-                <input type="email" id="personalEmail" name="email" required>
+                    <label for="personalPhone">Phone Number:</label>
+                    <input type="tel" id="personalPhone" name="phone" pattern="[0-9]{11}" required>
 
-                <label for="personalAddress">Address:</label>
-                <input type="text" id="personalAddress" name="address" required>
+                    <label for="personalEmail">Email:</label>
+                    <input type="email" id="personalEmail" name="email" required>
+
+                    <label for="personalAddress">Address:</label>
+                    <input type="text" id="personalAddress" name="address" required>
+                </div>
+
+                <div class="column">
+                    <!-- Personal Signup Form Fields -->
+                    <label for="personalPassword">Password:</label>
+                    <input type="password" id="personalPassword" name="password" required>
+
+                    <label for="personalConfirmPassword">Confirm Password:</label>
+                    <input type="password" id="personalConfirmPassword" name="confirmPassword" required>
+                </div>
             </div>
-
-            <div class="column">
-                <!-- Personal Signup Form Fields -->
-                <label for="personalPassword">Password:</label>
-                <input type="password" id="personalPassword" name="password" required>
-
-                <label for="personalConfirmPassword">Confirm Password:</label>
-                <input type="password" id="personalConfirmPassword" name="confirmPassword" required>
-            </div>
+            <button type="submit">Sign Up</button>
         </div>
-        <button type="submit">Sign Up</button>
-    </div>
+    </form>
 
     <script>
         function switchSignup(option) {
