@@ -33,6 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if ($conn->query($sql) === TRUE) {
                     echo "Professional Signup Successful";
+                    // Redirect to login page after 1 second
+                    echo '<script>
+                            setTimeout(function(){
+                                window.location.href = "login.php";
+                            }, 1000); // 1 second delay
+                          </script>';
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
@@ -52,6 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if ($conn->query($sql) === TRUE) {
                     echo "Personal Signup Successful";
+                    // Redirect to login page after 1 second
+                    echo '<script>
+                            setTimeout(function(){
+                                window.location.href = "login.php";
+                            }, 1000); // 1 second delay
+                          </script>';
                 } else {
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
